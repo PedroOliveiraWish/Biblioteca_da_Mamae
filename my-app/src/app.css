@@ -1,0 +1,35 @@
+/* app.css */
+
+:root {
+    --scrollbar-thumb: violet; /* Color for the scrollbar thumb */
+    --scrollbar-track: black;   /* Color for the scrollbar track */
+  }
+  
+  .App {
+    height: 100vh; /* Full height of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  /* For Firefox */
+  .App {
+    scrollbar-width: thin; /* Set the width of the scrollbar */
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); /* Apply colors */
+  }
+  
+  /* For WebKit browsers (Chrome, Safari) */
+  .App::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+  
+  .App::-webkit-scrollbar-track {
+    background: var(--scrollbar-track); /* Background color of the track */
+  }
+  
+  .App::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb); /* Color of the thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+  }
+  
+  .App::-webkit-scrollbar-thumb:hover {
+    background-color: #86489e; /* Change thumb color on hover */
+  }

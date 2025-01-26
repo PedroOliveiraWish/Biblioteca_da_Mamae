@@ -1,0 +1,55 @@
+.custom-checkbox .form-check-input {
+  width: 1.5rem; /* Larger checkbox */
+  height: 1.5rem;
+  border-radius: 50%; /* Round checkbox */
+  background-color: #EBDEF0; /* Pale Lilac background */
+  border: 2px solid #6C3483; /* Dark Violet border */
+  transition: background-color 0.3s, border-color 0.3s;
+  margin-top: 5px;
+  margin-right: 6px;
+}
+
+.custom-checkbox .form-check-input:checked {
+  background-color: #6C3483; /* Dark Violet when selected */
+  border-color: #7A00B3; /* Bright Violet border */
+}
+
+.custom-checkbox .form-check-label {
+  margin-left: 1rem; /* Space between checkbox and label */
+  width: 100%;
+  margin: 7px 0;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-weight: bold; /* Bold text */
+  color: #343A40; /* Dark gray text */
+  transition: color 0.3s;
+}
+
+.custom-checkbox .form-check-input:hover {
+  border-color: #7A00B3; /* Bright Violet on hover */
+}
+
+.custom-checkbox .form-check-label:hover {
+  color: #6C3483; /* Dark Violet text on hover */
+}
+
+.custom-checkbox .form-check-input:checked {
+  border-radius: 10px; /* Rounded corners for card */
+  box-shadow: 0 4px 8px rgba(108, 52, 131, 0.2); /* Subtle violet shadow */
+  transition: box-shadow 0.3s;
+}
+
+.custom-checkbox {
+  background-color: #EBDEF0;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(108, 52, 131, 0.2);
+}
+
+.ul-checkbox {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  width: 100%;
+}
