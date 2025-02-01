@@ -1,4 +1,4 @@
-````markdown
+
 # Biblioteca da Mamãe
 
 Bem-vindo ao repositório do projeto **Biblioteca da Mamãe**! Este é um site dedicado a promover a leitura e o amor pelos livros, criado especialmente para minha mãe.
@@ -74,5 +74,5 @@ Agradeço a todos que me apoiaram durante o desenvolvimento deste projeto, espec
 
 ````
 
-Sinta-se à vontade para personalizar o conteúdo conforme necessário! ```markdown
+Sinta-se à vontade para personalizar o conteúdo conforme necessário!
 ````
