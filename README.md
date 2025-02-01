@@ -27,7 +27,6 @@ Bem-vindo ao repositório do projeto **Biblioteca da Mamãe**! Este é um site d
    ```bash
    cd express-typescript-app
    ```
-````
 
 2. Instale as dependências:
 
