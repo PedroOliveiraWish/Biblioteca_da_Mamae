@@ -7,7 +7,7 @@ const useCollections = () => {
     useEffect(() => {
         const fetchCollections = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/collection')
+                const response = await fetch('https://biblioteca-da-mamae.onrender.com/api/collection')
                 const data = await response.json()
 
                 setCollections(data)

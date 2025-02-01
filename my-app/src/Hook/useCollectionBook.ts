@@ -8,7 +8,7 @@ const useCollectionBook = () => {
     const fetchCollectionBook = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/collectionBook",
+          "https://biblioteca-da-mamae.onrender.com/api/collectionBook",
           {
             method: "GET",
             headers: {

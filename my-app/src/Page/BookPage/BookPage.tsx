@@ -25,7 +25,7 @@ const BookPage: React.FC = () => {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const response = await fetch("http://localhost:3000/api/book", {
+      const response = await fetch("https://biblioteca-da-mamae.onrender.com/api/book", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

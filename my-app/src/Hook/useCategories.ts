@@ -7,7 +7,7 @@ const useCategories = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/category");
+        const response = await fetch("https://biblioteca-da-mamae.onrender.com/api/category");
 
         const data = await response.json();
 
