@@ -14,13 +14,13 @@ requiredENV.forEach((varName) => {
 })
 
 // The connection options
-const pool: Pool = new Pool({
-    host: process.env.POSTGRES_HOST,
+const pool = new Pool({
     user: process.env.POSTGRES_USER,
-    password: process.env.POSTGRES_PASSWORD,
+    host: process.env.POSTGRES_HOST,
     database: process.env.POSTGRES_DB,
-    port: Number(process.env.POSTGRES_PORT)
-})
+    password: process.env.POSTGRES_PASSWORD,
+    port: Number( process.env.POSTGRES_PORT ),
+});
 
 
 // Now you can use the connection to interact with your database
