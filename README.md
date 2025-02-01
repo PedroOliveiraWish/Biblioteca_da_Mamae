@@ -72,7 +72,4 @@ Este projeto é de uso pessoal e não possui uma licença específica. Sinta-se 
 
 Agradeço a todos que me apoiaram durante o desenvolvimento deste projeto, especialmente minha mãe, que é a inspiração por trás da "Biblioteca da Mamãe"! ❤️
 
-````
-
 Sinta-se à vontade para personalizar o conteúdo conforme necessário!
-````
