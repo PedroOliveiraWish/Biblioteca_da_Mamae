@@ -9,11 +9,9 @@ import {
     getBooksByCategoryName,
     getGroupBookByCollection,
     getBooksByCollectionId,
-    postBook
 } from './Models/book';
 import { getCollections } from './Models/collections';
 import { getCategories } from './Models/categories';
-import { getWishes, updateWish } from './Models/wish';
 
 // Initialize Express app
 const app: Application = express();
@@ -33,6 +31,7 @@ app.get('/api/category', async (req: Request, res: Response) => {
         const categories = await getCategories();
         res.send(categories);
     } catch (error) {
+        console.log(error)
         res.status(500).send({ message: 'Error fetching categories' });
     }
 });
@@ -50,6 +49,7 @@ app.get('/api/book', async (req: Request, res: Response) => {
             res.send(books);
         }
     } catch (error) {
+        console.log(error)
         res.status(400).send({ message: 'Error fetching books' });
     }
 });
@@ -60,6 +60,7 @@ app.get('/api/collection', async (req: Request, res: Response) => {
         const collections = await getCollections();
         res.send(collections);
     } catch (error) {
+        console.log(error)
         res.status(500).send({ message: 'Error fetching collections' });
     }
 });
@@ -70,6 +71,7 @@ app.get('/api/collectionBook', async (req: Request, res: Response) => {
         const collections_books = await getGroupBookByCollection();
         res.send(collections_books);
     } catch (error) {
+        console.log(error)
         res.status(400).send({ message: 'Error fetching books by collection' });
     }
 });
@@ -83,43 +85,10 @@ app.get('/api/collection/:id', async (req: Request, res: Response) => {
         const books = await getBooksByCollectionId(convertedCollectedIdToNumber);
         res.send(books);
     } catch (error) {
+        console.log(error)
         res.status(400).send({ message: 'Error fetching books by collection ID' });
     }
 });
-
-app.get('/api/wish', async (req: Request, res: Response) => {
-    try {
-        const wishes = await getWishes();
-
-        res.send(wishes)
-    } catch (error) {
-        res.status(400).send({ message: 'Error fetching wishes' });
-    }
-})
-
-// Add a new book
-app.post('/api/book', async (req: Request, res: Response) => {
-    try {
-        console.log(req.body);
-        await postBook(req.body);
-        res.status(201).send({ message: 'Book added successfully!' });
-    } catch (error) {
-        res.status(400).send({ message: 'Error adding book' });
-    }
-});
-
-// Update a book
-app.put('/api/wish/:id', async (req: Request, res: Response) => {
-    const { id } = req.params;
-    const convertedWishIdToNumber = parseInt(id);
-
-    try {
-        await updateWish(convertedWishIdToNumber);
-        res.status(200).send({ message: 'Wish updated successfully!' });
-    } catch (error) {
-        res.status(400).send({ message: 'Error updating wish' });
-    }
-})
 
 // Start the server
 const port: number = 3000;

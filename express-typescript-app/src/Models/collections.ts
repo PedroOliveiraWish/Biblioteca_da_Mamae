@@ -1,19 +1,17 @@
-import { RowDataPacket } from "mysql2/promise";
-import { connection } from "../database";
+import { pool } from "../database";
 
 interface Collection {
-    id: number;
-    name: string;
+    id_colecao: number;
+    nome: string;
 }
 
 const getCollections = async (): Promise<Collection[]> => {
     try {
-        const [rows] = await connection.execute<RowDataPacket[]>("SELECT * FROM collections");
-
-        return rows as Collection[];
+        const result = await pool.query("SELECT * FROM colecoes");
+        return result.rows as Collection[]; // Retorna as linhas como Collection[]
     } catch (error) {
         console.error(error);
-        return [];
+        return []; // Retorna um array vazio em caso de erro
     }
 }
 

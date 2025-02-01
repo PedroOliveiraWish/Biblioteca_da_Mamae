@@ -1,16 +1,8 @@
 import { useState, useEffect } from "react";
-
-interface Books {
-  id: number;
-  title: string;
-  author: string;
-  image_url: string;
-  read_book: boolean;
-  category_name: string;
-}
+import { Livro } from "../types/livro";
 
 const useBook = () => {
-  const [books, setBooks] = useState<Books[]>([]);
+  const [books, setBooks] = useState<Livro[]>([]);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -23,7 +15,6 @@ const useBook = () => {
         });
 
         const data = await response.json();
-
         console.log(data);
         setBooks(data);
       } catch (error) {

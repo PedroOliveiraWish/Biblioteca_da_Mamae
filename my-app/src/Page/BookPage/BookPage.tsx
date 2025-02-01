@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Button, Offcanvas, Card } from "react-bootstrap";
 
 import useCategories from "../../Hook/useCategories";
+import { Livro } from "../../types/livro";
 
 import BookCard from "../../Component/BookPage/BookCard";
 import Header from "../../Component/Header/Header";
@@ -9,18 +10,9 @@ import Footer from "../../Component/Footer/Footer";
 
 import "./d.css";
 
-interface Books {
-  id: number;
-  title: string;
-  author: string;
-  image_url: string;
-  read_book: boolean;
-  category_name: string;
-}
-
 const BookPage: React.FC = () => {
   const categories = useCategories();
-  const [books, setBooks] = useState<Books[]>([]);
+  const [books, setBooks] = useState<Livro[]>([]);
   const [showSidebar, setShowSidebar] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -91,17 +83,20 @@ const BookPage: React.FC = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               {categories.map((category) => (
-                <Card key={category.id} className="mb-3 shadow-sm border-0">
+                <Card
+                  key={category.id_categoria}
+                  className="mb-3 shadow-sm border-0"
+                >
                   <Card.Body className="p-2">
                     <label>
                       <input
                         type="radio"
                         name="category"
-                        value={category.name}
-                        checked={selectedCategory === category.name}
+                        value={category.nome}
+                        checked={selectedCategory === category.nome}
                         onChange={handleCategoryChange}
                       />{" "}
-                      {category.name}
+                      {category.nome}
                     </label>
                   </Card.Body>
                 </Card>
@@ -121,18 +116,18 @@ const BookPage: React.FC = () => {
             <div className="ul-checkbox">
               {categories.map((category) => (
                 <label
-                  key={category.id}
-                  className=" mb-2 form-check-label"
+                  key={category.id_categoria}
+                  className="mb-2 form-check-label"
                 >
                   <input
-                    className=" form-check-input"
+                    className="form-check-input"
                     type="radio"
                     name="category"
-                    value={category.name}
-                    checked={selectedCategory === category.name}
+                    value={category.nome}
+                    checked={selectedCategory === category.nome}
                     onChange={handleCategoryChange}
                   />{" "}
-                  {category.name}
+                  {category.nome}
                 </label>
               ))}
             </div>
@@ -157,12 +152,23 @@ const BookPage: React.FC = () => {
             >
               <Row>
                 {books.map((book) => (
-                  <Col xs={12} lg={4} md={6} key={book.id} className="mb-4">
+                  <Col
+                    xs={12}
+                    lg={6}
+                    md={6}
+                    key={book.id_livro}
+                    className="mb-4"
+                  >
                     <BookCard
-                      title={book.title}
-                      author_name={book.author}
-                      image_url={book.image_url}
-                      category_name={book.category_name}
+                      id_livro={book.id_livro}
+                      titulo={book.titulo}
+                      autor={book.autor}
+                      imagem_url={book.imagem_url}
+                      classificacao_livro={book.classificacao_livro}
+                      categoria_nome={book.categoria_nome}
+                      colecao_id={book.colecao_id}
+                      trecho_livro={book.trecho_livro}
+                      comentario_livro={book.comentario_livro}
                     />
                   </Col>
                 ))}

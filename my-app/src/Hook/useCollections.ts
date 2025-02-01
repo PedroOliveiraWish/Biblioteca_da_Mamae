@@ -1,13 +1,8 @@
 import { useState, useEffect } from "react";
-
-interface Collection {
-  image_url: string | undefined;
-  id: number;
-  name: string;
-}
+import { ColecaoLivro } from "../types/colecaoLivro";
 
 const useCollections = () => {
-    const [collections, setCollections] = useState<Collection[]>([]);
+    const [collections, setCollections] = useState<ColecaoLivro[]>([]);
 
     useEffect(() => {
         const fetchCollections = async () => {

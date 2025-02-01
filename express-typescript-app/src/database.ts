@@ -1,10 +1,10 @@
-import mysql, { Connection, ConnectionOptions } from 'mysql2/promise';
+import {Pool} from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config({ path: './config/.env' })
 
 // The const contains the environment variables
-const requiredENV = ['DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME'];
+const requiredENV = ['POSTGRES_HOST', 'POSTGRES_USER', 'POSTGRES_PASSWORD', 'POSTGRES_DB', 'POSTGRES_PORT'];
 // I itered over the required environment variables and checked if they exist
 requiredENV.forEach((varName) => {
     // If the environment variable does not exist, it will throw an error
@@ -14,15 +14,14 @@ requiredENV.forEach((varName) => {
 })
 
 // The connection options
-const dbConfig: ConnectionOptions = {
-    host: process.env.DB_HOST!,
-    user: process.env.DB_USER!,
-    password: process.env.DB_PASSWORD!,
-    database: process.env.DB_NAME!
-}
+const pool: Pool = new Pool({
+    host: process.env.POSTGRES_HOST,
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DB,
+    port: Number(process.env.POSTGRES_PORT)
+})
 
-// Create a connection pool for better performance
-const connectionPool = mysql.createPool(dbConfig);
 
 // Now you can use the connection to interact with your database
 const connection_database = async (): Promise<void> => {
@@ -33,9 +32,9 @@ const connection_database = async (): Promise<void> => {
     // While the actually attemp is smaller than the max attemps
     while (attempt < maxAttemps) {
         try {
-            const connection = await connectionPool.getConnection();
+            await pool.query("SET client_encoding = 'UTF8';");
+            await pool.connect();
             console.log('Connected to the database');
-            connection.release()
             return;
         } catch (err) {
             // If there is an error, increment the attempt
@@ -55,4 +54,4 @@ const connection_database = async (): Promise<void> => {
     }
 }
 
-export {connectionPool as connection, connection_database}
+export { connection_database, pool };

@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
-
-interface CollectionBook {
-  collection_id: number;
-  collection_name: string;
-  book_image_url: string;
-}
+import { ColecaoLivro } from "../types/colecaoLivro";
 
 const useCollectionBook = () => {
-  const [collectionBook, setCollectionBook] = useState<CollectionBook[]>([]);
+  const [collectionBook, setCollectionBook] = useState<ColecaoLivro[]>([]);
 
   useEffect(() => {
     const fetchCollectionBook = async () => {
@@ -23,6 +18,7 @@ const useCollectionBook = () => {
         );
 
         const data = await response.json();
+        console.log(data)
 
         setCollectionBook(data);
       } catch (error) {

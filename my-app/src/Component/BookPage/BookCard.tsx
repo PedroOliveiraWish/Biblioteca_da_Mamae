@@ -1,44 +1,52 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import '../../styles/book/book.css'
+import "../../styles/book/book.css";
+import { Livro } from "../../types/livro";
+import StarRating from "../StarRating/StarRating";
 
-interface BookCardProps {
-  title: string;
-  author_name: string;
-  image_url: string;
-  category_name: string;
-}
-
-const BookCard: React.FC<BookCardProps> = (book) => (
+const BookCard: React.FC<Livro> = ({
+  titulo,
+  autor,
+  imagem_url,
+  classificacao_livro,
+  categoria_nome,
+  trecho_livro,
+  comentario_livro,
+}) => (
   <Card
     className="book-card"
     onMouseEnter={(e) => {
-      e.currentTarget.classList.add('hover');
+      e.currentTarget.classList.add("hover");
     }}
     onMouseLeave={(e) => {
-      e.currentTarget.classList.remove('hover');
+      e.currentTarget.classList.remove("hover");
     }}
   >
     <div className="content">
       {/* Image Section */}
       <div className="img-container">
-        <Card.Img
-          src={book.image_url}
-          className="card-img"
-        />
+        <Card.Img src={imagem_url} className="card-img" />
       </div>
 
       {/* Text Section */}
       <Card.Body className="card-body">
         <Card.Title className="card-title">
-          {book.title}
+          <div className="title">{titulo}</div>
+
+          <div className="small-text">
+            <div className="star">
+              <StarRating rating={classificacao_livro} />
+            </div>
+            <div className="autor">{autor}</div>
+          </div>
         </Card.Title>
         <Card.Text className="card-text">
-          <div className="author-block">
-            {book.author_name}
+          <span className="category-block">Categoria: {categoria_nome}</span>
+          <div className="trecho">
+            <p>{trecho_livro}</p>
           </div>
-          <div className="category-block">
-            {book.category_name}
+          <div className="comentario">
+            <p>{comentario_livro}</p>
           </div>
         </Card.Text>
       </Card.Body>

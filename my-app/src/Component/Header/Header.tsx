@@ -1,8 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { LuLibrary } from "react-icons/lu";
-import { BsBrightnessHigh } from "react-icons/bs";
-import { FaUserCircle, FaHome, FaBook } from "react-icons/fa";
+import { FaHome, FaBook } from "react-icons/fa";
 import { HiCollection } from "react-icons/hi";
 
 const Header: React.FC = () => {
@@ -10,7 +9,7 @@ const Header: React.FC = () => {
     <Navbar
       expand="lg"
       className="py-2 w-100"
-      style={{ backgroundColor: "#86489e", color: "#FFFFFF" }} // Dark Violet
+      style={{ backgroundColor: "#86489e", color: "#FFFFFF" }}
     >
       <Container>
         {/* Brand */}
@@ -28,10 +27,11 @@ const Header: React.FC = () => {
           Biblioteca da Mamãe
         </Navbar.Brand>
 
-        {/* Toggle for mobile */}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ borderColor: "#FFFFFF" }} />
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          style={{ borderColor: "#FFFFFF" }}
+        />
         <Navbar.Collapse id="basic-navbar-nav">
-          {/* Left-aligned navigation */}
           <Nav className="me-auto w-100 d-flex justify-content-around">
             <Nav.Link
               href="/"
@@ -56,34 +56,6 @@ const Header: React.FC = () => {
             >
               <HiCollection size={25} style={{ marginRight: "7px" }} />
               Coleção
-            </Nav.Link>
-            <Nav.Link
-              href="/wish"
-              className="d-flex align-items-center px-3"
-              style={{ color: "#FFFFFF", fontSize: "1rem", fontWeight: "500" }}
-            >
-              <HiCollection size={25} style={{ marginRight: "7px" }} />
-              Desejo
-            </Nav.Link>
-          </Nav>
-
-          {/* Right-aligned navigation */}
-          <Nav className="me-auto w-100 d-flex justify-content-end">
-            <Nav.Link
-              href="#lighting"
-              className="d-flex align-items-center px-3"
-              style={{ color: "#FFFFFF", fontSize: "1rem", fontWeight: "500" }}
-            >
-              <BsBrightnessHigh size={25} style={{ marginRight: "7px" }} />
-              Iluminação
-            </Nav.Link>
-            <Nav.Link
-              href="#user"
-              className="d-flex align-items-center px-3"
-              style={{ color: "#FFFFFF", fontSize: "1rem", fontWeight: "500" }}
-            >
-              <FaUserCircle size={25} style={{ marginRight: "7px" }} />
-              Usuário
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

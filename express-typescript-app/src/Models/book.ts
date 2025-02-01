@@ -1,107 +1,118 @@
-import { RowDataPacket } from 'mysql2/promise';
-import { connection } from "../database";
+import { pool } from "../database";
 
-interface Books {
-    title: string;
-    author: string;
-    image_url: string;
-    is_read: boolean;
-    category: number;
-    collection: number;
+interface Livro {
+    livro_id: number;
+    titulo: string;
+    autor: string;
+    imagem_url: string;
+    trecho_livro: string;
+    comentario_livro: string;
+    classificacao_livro: number;
+    categoria_id: number;
+    colecao_id: number;
 }
 
-const getBooks = async (): Promise<Books[]> => {
+const getBooks = async (): Promise<Livro[]> => {
     try {
-        const [rows] = await connection.execute<RowDataPacket[]>(`
+        const result = await pool.query(`
             SELECT 
-                books.id, 
-                books.title, 
-                books.author, 
-                books.image_url, 
-                books.read_book, 
-                categories.name AS category_name
-            FROM books
-            LEFT JOIN categories ON books.category_id = categories.id
-            WHERE books.read_book = 1;
-    `);
+            livros.id_livro,
+                livros.titulo, 
+                livros.autor, 
+                livros.imagem_url, 
+                livros.trecho_livro, 
+                livros.comentario_livro, 
+                livros.classificacao_livro,
+                categorias.nome as categoria_nome
+            FROM livros
+            JOIN
+            categorias ON livros.categoria_id = categorias.id_categoria
+            ORDER BY livros.id_livro
+        `);
 
-        return rows as Books[];
+        return result.rows as Livro[];
     } catch (error) {
         console.error(error);
         return [];
     }
 }
 
-const getBooksByCategoryName = async (categoryName: string): Promise<Books[]> => {
+const getBooksByCategoryName = async (categoryName: string): Promise<Livro[]> => {
     try {
-        const [rows] = await connection.execute<RowDataPacket[]>(`
+        const result = await pool.query(`
             SELECT 
-                b.id AS book_id,
-                b.title,
-                b.author,
-                b.image_url,
-                b.read_book,
-                c.id AS category_id,
-                c.name AS category_name
+                b.titulo,
+                b.autor,
+                b.imagem_url,
+                b.trecho_livro,
+                b.comentario_livro,
+                b.classificacao_livro,
+                b.categoria_id,
+                c.nome as categoria_nome,
+                b.colecao_id
             FROM 
-                books b
+                livros b
             JOIN 
-                categories c
-            ON 
-                b.category_id = c.id
+                categorias c ON b.categoria_id = c.id_categoria
             WHERE 
-                c.name = ?;
+                c.nome = $1;
         `, [categoryName]);
 
-        return rows as Books[];
+        return result.rows as Livro[];
     } catch (error) {
         console.error(error);
-        return []
+        return [];
     }
 }
 
-const getGroupBookByCollection = async (): Promise<Books[]> => {
+const getGroupBookByCollection = async (): Promise<Livro[]> => {
     try {
-        const [rows] = await connection.execute<RowDataPacket[]>(`
+        const result = await pool.query(`
             SELECT 
-                collections.id AS collection_id,
-                collections.name AS collection_name,
-                MIN(books.image_url) AS book_image_url
+                colecoes.id_colecao AS colecao_id,
+                colecoes.nome AS nome,
+                MIN(livros.imagem_url) AS imagem_url
             FROM 
-                collections
+                colecoes
             LEFT JOIN 
-                books ON books.collection_id = collections.id
+                livros ON livros.colecao_id = colecoes.id_colecao
             GROUP BY 
-                collections.id, collections.name
+                colecoes.id_colecao, colecoes.nome
             ORDER BY 
-                collections.id;
-        `)
-        return rows as Books[]
+                colecoes.id_colecao;
+        `);
+        return result.rows;
     } catch (error) {
         console.error(error);
-        return []
+        return [];
     }
 }
 
-const getBooksByCollectionId = async (id: number): Promise<Books[]> => {
+const getBooksByCollectionId = async (id: number): Promise<Livro[]> => {
     try {
-        const [rows] = await connection.execute<RowDataPacket[]>(`SELECT * FROM books WHERE collection_id = ?`, [id]);
-        return rows as Books[]
+        const result = await pool.query(`
+            SELECT 
+                b.titulo, 
+                b.autor, 
+                b.imagem_url, 
+                b.trecho_livro, 
+                b.comentario_livro, 
+                b.classificacao_livro,
+                b.categoria_id,
+                b.colecao_id
+            FROM 
+                livros b
+            JOIN 
+                colecoes c ON b.colecao_id = c.id_colecao
+            WHERE 
+                c.id_colecao = $1;
+        `, [id]);
+
+        return result.rows as Livro[];
     } catch (error) {
         console.error(error);
-        return []
+        return [];
     }
 }
 
-const postBook = async (book: Books): Promise<Books> => {
-    try {
-        const rows = await connection.execute('INSERT INTO books (title, author, image_url, read_book, category_id, collection_id) values (?, ?, ?, ?, ?, ?)', [book.title, book.author, book.image_url, book.is_read, book.category, book.collection]);
-
-        return rows as unknown as Books;
-    } catch (error) {
-        console.error(error);
-        return book;
-    }
-}
-
-export { postBook, getBooks, getBooksByCategoryName, getGroupBookByCollection, getBooksByCollectionId };
+export { getBooks, getBooksByCategoryName, getGroupBookByCollection, getBooksByCollectionId };

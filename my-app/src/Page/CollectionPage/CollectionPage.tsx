@@ -6,6 +6,7 @@ import Footer from "../../Component/Footer/Footer";
 import useCollectionBook from "../../Hook/useCollectionBook";
 
 import { Container, Card, Row, Col } from "react-bootstrap";
+import "../../styles/collection/collection.css";
 
 const CollectionPage: React.FC = () => {
   const collections = useCollectionBook();
@@ -19,60 +20,32 @@ const CollectionPage: React.FC = () => {
     <div className="collectionPage">
       <Header />
 
-      <div
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1521920592574-49e0b121c964?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "60vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "white",
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            padding: "20px",
-            borderRadius: "10px",
-          }}
-        >
+      <div className="hero-section">
+        <div className="hero-content">
           <h1>Bem-vindo às suas coleções!</h1>
           <p>Organização fácil para todo amante de livros</p>
         </div>
       </div>
 
       <Container>
-        <Row className=" py-5" xs={1} sm={2} md={3} lg={4}>
+        <Row className="py-5" xs={1} sm={2} md={3} lg={4}>
           {collections.map((collection) => {
             return (
-              <Col>
+              <Col key={collection.colecao_id}>
                 <Card
-                  className=" mt-3 shadow-lg rounded"
-                  key={collection.collection_id}
-                  style={{
-                    height: "400px",
-                    cursor: "pointer",
-                    border: "1px solid #A569BD",
-                  }}
-                  onClick={() => handleClick(collection.collection_id)}
+                  className="collection-card mt-3 shadow-lg rounded"
+                  onClick={() => handleClick(collection.colecao_id)}
                 >
-                  <div className="image p-2 rounded">
-                    <Card.Img
-                      className="w-100 shadow-sm rounded"
-                      style={{ height: "300px", width: "100%" }}
-                      variant="top"
-                      src={collection.book_image_url}
+                  <div className="image">
+                    <img
+                      className="card-img"
+                      src={collection.imagem_url}
+                      alt={collection.nome}
                     />
                   </div>
-                  <Card.Body>
-                    <Card.Title style={{ textTransform: "uppercase" }}>
-                      {collection.collection_name}
-                    </Card.Title>
-                  </Card.Body>
+                  <div className="content-title">
+                    <div className="card-title">{collection.nome}</div>
+                  </div>
                 </Card>
               </Col>
             );

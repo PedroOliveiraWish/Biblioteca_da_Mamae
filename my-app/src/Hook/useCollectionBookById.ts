@@ -1,16 +1,8 @@
 import { useState, useEffect } from "react";
+import { Livro } from "../types/livro";
 
-interface Books {
-  id: number;
-  title: string;
-  author: string;
-  image_url: string;
-  read_book: boolean;
-  category_name: string;
-}
-
-const useCollectionBookById = (collection_id: string | undefined) => {
-  const [books, setBooks] = useState<Books[]>([]);
+const useCollectionBookById = (collection_id: number | undefined) => {
+  const [books, setBooks] = useState<Livro[]>([]);
 
   useEffect(() => {
     const fetchBooksByCollection = async () => {

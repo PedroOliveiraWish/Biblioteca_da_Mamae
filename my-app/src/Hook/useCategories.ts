@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react";
-
-interface Category {
-  id: number;
-  name: string;
-}
+import { Categoria } from "../types/categoria";
 
 const useCategories = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
+  const [categories, setCategories] = useState<Categoria[]>([]);
 
   useEffect(() => {
     const fetchCategories = async () => {

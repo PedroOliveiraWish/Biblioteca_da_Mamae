@@ -1,5 +1,4 @@
-import { RowDataPacket } from 'mysql2/promise';
-import { connection } from "../database";
+import { pool } from "../database";
 
 interface Categories {
     id: number;
@@ -8,13 +7,11 @@ interface Categories {
 
 const getCategories = async (): Promise<Categories[]> => {
     try {
-        // I must import the RowDataPacket class for inform that the result is a RowDataPacket
-        const [rows] = await connection.execute<RowDataPacket[]>('SELECT * FROM categories');
-
-        return rows as Categories[]; // Cast rows to Categories[]
+        const result = await pool.query('SELECT * FROM categorias');
+        return result.rows as Categories[]; // Retorna as linhas como Categories[]
     } catch (error) {
         console.error(error);
-        return []; // Fallback to an empty array in case of error
+        return []; // Retorna um array vazio em caso de erro
     }
 };
 
