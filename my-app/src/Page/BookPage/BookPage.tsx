@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Button, Offcanvas, Card } from "react-bootstrap";
 
 import useCategories from "../../Hook/useCategories";
+import { fetchBooks } from "../../API/Book.api";
 import { Livro } from "../../types/livro";
 
 import BookCard from "../../Component/BookPage/BookCard";
@@ -18,24 +19,27 @@ const BookPage: React.FC = () => {
 
   const handleCategoryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
+
+    console.log("Selected category:", value); // Debugging line
+
     setSelectedCategory(value === selectedCategory ? null : value);
   };
 
   const handleToggleSidebar = () => setShowSidebar(!showSidebar);
 
   useEffect(() => {
-    const fetchBooks = async () => {
-      const response = await fetch("https://biblioteca-da-mamae.onrender.com/api/book", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          options: selectedCategory || "",
-        },
-      });
-      const data = await response.json();
-      setBooks(data);
-    };
-    fetchBooks();
+    fetchBooks().then((data) => {
+      const booksData = data as Livro[]; // Explicitly type 'data' as 'Livro[]'
+      if (selectedCategory) {
+        const filteredBooks: Livro[] = booksData.filter(
+          (book: Livro) => book.categoria_nome === selectedCategory
+        );
+
+        setBooks(filteredBooks);
+      } else {
+        setBooks(booksData);
+      }
+    });
   }, [selectedCategory]);
 
   return (
@@ -150,29 +154,21 @@ const BookPage: React.FC = () => {
                 boxShadow: "0 4px 8px rgba(108, 52, 131, 0.1)",
               }}
             >
-              <Row>
+              <ul className="list-books">
                 {books.map((book) => (
-                  <Col
-                    xs={12}
-                    lg={6}
-                    md={6}
-                    key={book.id_livro}
-                    className="mb-4"
-                  >
-                    <BookCard
-                      id_livro={book.id_livro}
-                      titulo={book.titulo}
-                      autor={book.autor}
-                      imagem_url={book.imagem_url}
-                      classificacao_livro={book.classificacao_livro}
-                      categoria_nome={book.categoria_nome}
-                      colecao_id={book.colecao_id}
-                      trecho_livro={book.trecho_livro}
-                      comentario_livro={book.comentario_livro}
-                    />
-                  </Col>
+                  <BookCard
+                    id_livro={book.id_livro}
+                    titulo={book.titulo}
+                    autor={book.autor}
+                    imagem_url={book.imagem_url}
+                    classificacao_livro={book.classificacao_livro}
+                    categoria_nome={book.categoria_nome}
+                    colecao_nome={book.colecao_nome}
+                    trecho_livro={book.trecho_livro}
+                    comentario_livro={book.comentario_livro}
+                  />
                 ))}
-              </Row>
+              </ul>
             </div>
           </Col>
         </>

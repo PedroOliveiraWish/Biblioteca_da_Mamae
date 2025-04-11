@@ -10,6 +10,7 @@ const BookCard: React.FC<Livro> = ({
   imagem_url,
   classificacao_livro,
   categoria_nome,
+  colecao_nome,
   trecho_livro,
   comentario_livro,
 }) => (

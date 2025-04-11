@@ -6,6 +6,6 @@ export interface Livro {
     trecho_livro: string;
     comentario_livro: string;
     classificacao_livro: number;
-    categoria_nome: number;
-    colecao_id: number;
+    categoria_nome: String;
+    colecao_nome: String;
 }

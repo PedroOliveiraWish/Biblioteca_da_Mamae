@@ -47,7 +47,7 @@ const CollectionPageDetail = () => {
                 comentario_livro={book.comentario_livro}
                 classificacao_livro={book.classificacao_livro}
                 categoria_nome={book.categoria_nome}
-                colecao_id={book.colecao_id}
+                colecao_nome={book.colecao_nome}
               />
             </Col>
           ))}

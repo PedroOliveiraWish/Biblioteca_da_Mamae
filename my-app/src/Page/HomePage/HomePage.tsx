@@ -104,7 +104,7 @@ function HomePage() {
                   trecho_livro={livro.trecho_livro}
                   comentario_livro={livro.comentario_livro}
                   id_livro={livro.id_livro}
-                  colecao_id={livro.colecao_id}
+                  colecao_nome={livro.colecao_nome}
                 />
               </div>
             ) : null
