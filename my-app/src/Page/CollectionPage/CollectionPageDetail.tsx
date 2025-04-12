@@ -1,15 +1,55 @@
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import { useCollectionBookById } from "../../Hook/useCollectionBookById";
 import BookCard from "../../Component/BookPage/BookCard";
 import Header from "../../Component/Header/Header";
 import Footer from "../../Component/Footer/Footer";
 import { Link } from "react-router-dom";
+import { fetchBooks } from "../../API/Book.api";
+import { fetchCollections } from "../../API/Collection.api";
+
+import { Livro } from "../../types/livro";
+import { ColecaoLivro } from "../../types/colecaoLivro";
+
+import React, { useState, useEffect } from "react";
 
 const CollectionPageDetail = () => {
+  const [books, setBooks] = useState<Livro[]>([]);
+  const [filteredCollection, setFilteredCollection] =
+    useState<ColecaoLivro[]>();
+
   const { id } = useParams<{ id: string | undefined }>();
   const id_number = parseInt(id || "0");
-  const books = useCollectionBookById(id_number);
+
+  useEffect(() => {
+    fetchCollections().then((data) => {
+      const collection_data = data as ColecaoLivro[];
+
+      const filtered_data = collection_data.filter(
+        (collection: ColecaoLivro) => collection.colecao_id === id_number
+      );
+
+      setFilteredCollection(filtered_data);
+    });
+
+  }, [id_number])
+
+  useEffect(() => {
+    const collection_nome =
+      filteredCollection?.map((data: ColecaoLivro) => {
+        return data.nome;
+      }) || [];
+
+
+    fetchBooks().then((data) => {
+      const books_data = data as Livro[];
+
+      const filtered_books = books_data.filter(
+        (livro: Livro) => livro.colecao_nome === collection_nome[0]
+      );
+      setBooks(filtered_books);
+    });
+
+  }, [filteredCollection]);
 
   return (
     <div className="collection_page_by_id h-100 d-flex flex-column align-items-center justify-content-between">

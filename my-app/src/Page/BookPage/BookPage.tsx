@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Button, Offcanvas, Card } from "react-bootstrap";
 
-import useCategories from "../../Hook/useCategories";
 import { fetchBooks } from "../../API/Book.api";
+import { fetchCategory } from "../../API/Category.api";
 import { Livro } from "../../types/livro";
+import { Categoria } from "../../types/categoria";
 
 import BookCard from "../../Component/BookPage/BookCard";
 import Header from "../../Component/Header/Header";
@@ -12,8 +13,8 @@ import Footer from "../../Component/Footer/Footer";
 import "./d.css";
 
 const BookPage: React.FC = () => {
-  const categories = useCategories();
   const [books, setBooks] = useState<Livro[]>([]);
+  const [categories, setCategories] = useState<Categoria[]>([])
   const [showSidebar, setShowSidebar] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -26,6 +27,16 @@ const BookPage: React.FC = () => {
   };
 
   const handleToggleSidebar = () => setShowSidebar(!showSidebar);
+
+  useEffect(() => {
+    fetchCategory().then((data) => {
+      const categoriesData = data as Categoria[];
+
+      console.log("categories", categoriesData)
+
+      setCategories(categoriesData)
+    })
+  }, [])
 
   useEffect(() => {
     fetchBooks().then((data) => {

@@ -155,7 +155,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Revolucao dos bichos e uma critica social poderosa que utiliza animais para explorar temas de opressao e revolta, sendo uma leitura essencial.",
                     "classificacao_livro": 5,
                     "categoria_nome": "ficcao",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 29,
@@ -166,7 +166,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Elas nao usam black-tie e uma obra que aborda questoes sociais e politicas com profundidade, apresentando personagens complexos e um enredo envolvente.",
                     "classificacao_livro": 5,
                     "categoria_nome": "teatro",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 30,
@@ -177,7 +177,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Quem tem medo de vampiro? e uma narrativa que mistura humor e critica social, desafiando o leitor a confrontar seus proprios medos e preconceitos.",
                     "classificacao_livro": 4,
                     "categoria_nome": "vampiro",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 31,
@@ -210,7 +210,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "O escaravelho do diabo e uma narrativa intrigante que mistura suspense e elementos sobrenaturais, mantendo o leitor em constante expectativa.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 34,
@@ -232,7 +232,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Relacoes de sangue e uma narrativa que explora a complexidade das relacoes familiares, com personagens bem construidos e uma trama envolvente.",
                     "classificacao_livro": 4,
                     "categoria_nome": "vampiro",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 37,
@@ -243,7 +243,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Se houver amanha e uma narrativa envolvente que explora as consequencias das decisoes tomadas, com reviravoltas que surpreendem o leitor.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Sidney Sheldon"
+                    "colecao_nome": "sidney sheldon"
                 },
                 {
                     "id_livro": 38,
@@ -254,7 +254,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Em busca de um novo amanha e uma historia inspiradora sobre resiliencia e a busca por um futuro melhor, com personagens que cativam o leitor.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Sidney Sheldon"
+                    "colecao_nome": "sidney sheldon"
                 },
                 {
                     "id_livro": 39,
@@ -265,7 +265,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Um estranho no espelho e uma narrativa que provoca reflexoes profundas sobre quem somos e como nos vemos, com uma trama envolvente.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Sidney Sheldon"
+                    "colecao_nome": "sidney sheldon"
                 },
                 {
                     "id_livro": 40,
@@ -276,7 +276,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Anjo da escuridao e uma obra que mistura misterio e drama, mantendo o leitor intrigado ate a última pagina.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Sidney Sheldon"
+                    "colecao_nome": "sidney sheldon"
                 },
                 {
                     "id_livro": 41,
@@ -287,7 +287,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Depois da escuridao e uma narrativa que explora a luta pela superacao e a busca por esperanca, com personagens que ressoam com o leitor.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Sidney Sheldon"
+                    "colecao_nome": "sidney sheldon"
                 },
                 {
                     "id_livro": 42,
@@ -298,7 +298,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Lembrancas da meia-noite e uma obra que entrelaca passado e presente, revelando segredos que impactam a vida dos personagens.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Sidney Sheldon"
+                    "colecao_nome": "sidney sheldon"
                 },
                 {
                     "id_livro": 43,
@@ -309,7 +309,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "O outro lado da meia-noite e uma narrativa envolvente que explora os limites entre amor e vinganca, mantendo o leitor em suspense ate o final.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Sidney Sheldon"
+                    "colecao_nome": "sidney sheldon"
                 },
                 {
                     "id_livro": 44,
@@ -320,7 +320,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Conte me seus sonhos e uma obra que mistura misterio e drama psicologico, levando o leitor a questionar a realidade e a natureza dos sonhos.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Sidney Sheldon"
+                    "colecao_nome": "sidney sheldon"
                 },
                 {
                     "id_livro": 45,
@@ -331,7 +331,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Um capricho dos deuses e uma narrativa que explora a fragilidade da vida e as reviravoltas do destino, mantendo o leitor intrigado ate a última pagina.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Sidney Sheldon"
+                    "colecao_nome": "sidney sheldon"
                 },
                 {
                     "id_livro": 46,
@@ -342,7 +342,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Algo a mais e uma historia que explora as nuances do amor e do desejo, com personagens cativantes e um enredo envolvente.",
                     "classificacao_livro": 4,
                     "categoria_nome": "romance",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 47,
@@ -353,7 +353,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "O enigma da casa de vidro e uma narrativa intrigante que combina suspense e misterio, mantendo o leitor em constante expectativa.",
                     "classificacao_livro": 4,
                     "categoria_nome": "drama",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 48,
@@ -375,7 +375,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "A ira dos anjos e uma obra que combina suspense e drama, mantendo o leitor em constante tensao e expectativa sobre o desfecho da historia.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Sidney Sheldon"
+                    "colecao_nome": "sidney sheldon"
                 },
                 {
                     "id_livro": 49,
@@ -386,7 +386,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Cesar e uma obra que explora a vida e os feitos de um dos maiores lideres da historia, com uma narrativa rica e envolvente.",
                     "classificacao_livro": 4,
                     "categoria_nome": "historia",
-                    "colecao_nome": "imperadores romanos"
+                    "colecao_nome": "imperadores de roma"
                 },
                 {
                     "id_livro": 50,
@@ -397,7 +397,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Augusto e uma narrativa que explora a asc ensao e os desafios de um dos imperadores mais influentes da historia, oferecendo uma visao fascinante sobre o poder e a politica.",
                     "classificacao_livro": 4,
                     "categoria_nome": "historia",
-                    "colecao_nome": "imperadores romanos"
+                    "colecao_nome": "imperadores de roma"
                 },
                 {
                     "id_livro": 51,
@@ -408,7 +408,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Os caes sonham? e uma obra que investiga a psicologia dos caes, revelando como eles percebem o mundo e suas interacoes com os humanos.",
                     "classificacao_livro": 5,
                     "categoria_nome": "psicologia",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 52,
@@ -419,7 +419,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Morte e vida severina e uma obra que aborda a condicao humana de forma profunda e sensivel, utilizando a poesia para transmitir suas mensagens.",
                     "classificacao_livro": 5,
                     "categoria_nome": "poesia",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 53,
@@ -430,7 +430,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Malorie e uma narrativa tensa e envolvente que explora o medo e a resiliencia em um cenario de desespero, mantendo o leitor em constante suspense.",
                     "classificacao_livro": 5,
                     "categoria_nome": "ficcao",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 54,
@@ -463,7 +463,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "O morro dos ventos uivantes e uma obra-prima da literatura que explora as complexidades do amor e da vinganca, com uma narrativa poderosa e emocional.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 57,
@@ -474,7 +474,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Amor vampiro e uma narrativa que mistura romance e elementos sobrenaturais, proporcionando uma leitura envolvente e cheia de surpresas, com personagens que cativam e intrigam.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 58,
@@ -485,7 +485,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "As violetas de marco e uma historia tocante que entrelaca amor e perda, explorando a forca das memorias e a importância das relacoes.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 59,
@@ -496,7 +496,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Ardente em chamas e uma narrativa sensual que explora a paixao e os limites do amor, com personagens que desafiam as convencoes.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Sylvia Day"
+                    "colecao_nome": "sylvia day"
                 },
                 {
                     "id_livro": 60,
@@ -507,7 +507,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Um olhar de amor e uma historia romântica que captura a essencia do amor verdadeiro, com personagens que se conectam de maneira profunda.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Bella Andre"
+                    "colecao_nome": "bella andre"
                 },
                 {
                     "id_livro": 61,
@@ -518,7 +518,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Nao posso me apaixonar e uma narrativa que explora os desafios do amor e da vulnerabilidade, com personagens que lutam contra seus proprios medos.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Bella Andre"
+                    "colecao_nome": "bella andre"
                 },
                 {
                     "id_livro": 62,
@@ -529,7 +529,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Rush sem limites e uma historia que combina romance e emocao, com personagens que enfrentam desafios e descobrem o verdadeiro amor.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Rush"
+                    "colecao_nome": "rush"
                 },
                 {
                     "id_livro": 64,
@@ -540,7 +540,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Crescendo e uma historia que mistura romance e misterio, com personagens que enfrentam dilemas emocionais e descobertas surpreendentes.",
                     "classificacao_livro": 4,
                     "categoria_nome": "ficcao",
-                    "colecao_nome": "Becca"
+                    "colecao_nome": "becca"
                 },
                 {
                     "id_livro": 65,
@@ -551,7 +551,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Sempre foi voce e uma narrativa que explora a conexao entre duas almas, com um enredo que toca o coracao e provoca reflexoes sobre o destino.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "Sempre foi voce"
+                    "colecao_nome": "sempre foi voce"
                 },
                 {
                     "id_livro": 66,
@@ -562,7 +562,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Os olhos do dragao e uma obra que mistura fantasia e intriga politica, com personagens complexos e uma narrativa envolvente que cativa o leitor.",
                     "classificacao_livro": 5,
                     "categoria_nome": "conto de fadas",
-                    "colecao_nome": "Stephen King"
+                    "colecao_nome": "stephen king"
                 },
                 {
                     "id_livro": 67,
@@ -573,7 +573,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Breakable e uma narrativa que explora os desafios emocionais e as superacoes, com personagens que lutam por seus sonhos e por amor.",
                     "classificacao_livro": 4,
                     "categoria_nome": "romance",
-                    "colecao_nome": "contornos do coração"
+                    "colecao_nome": "contornos do coracao"
                 },
                 {
                     "id_livro": 68,
@@ -584,7 +584,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Dezesseis luas e uma historia envolvente que mistura romance e magia, com um enredo que mantem o leitor ansioso por mais.",
                     "classificacao_livro": 5,
                     "categoria_nome": "conto de fadas",
-                    "colecao_nome": "Dezesseis luas"
+                    "colecao_nome": "dezesseis luas"
                 },
                 {
                     "id_livro": 69,
@@ -595,7 +595,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "A ascensao da meia noite e uma narrativa que combina romance e acao, com personagens que enfrentam desafios e descobrem o verdadeiro amor.",
                     "classificacao_livro": 5,
                     "categoria_nome": "vampiro",
-                    "colecao_nome": "ascenção"
+                    "colecao_nome": "ascencao"
                 },
                 {
                     "id_livro": 70,
@@ -617,7 +617,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Pulsacao e uma narrativa intensa que explora as complexidades do amor e da dor, com personagens que lutam por suas paixoes.",
                     "classificacao_livro": 5,
                     "categoria_nome": "romance",
-                    "colecao_nome": "tensão"
+                    "colecao_nome": "tensao"
                 },
                 {
                     "id_livro": 72,
@@ -639,7 +639,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Anjo mecanico e uma obra que combina romance e aventura, com uma trama cheia de reviravoltas e personagens cativantes que prendem a atencao do leitor.",
                     "classificacao_livro": 5,
                     "categoria_nome": "fantasia",
-                    "colecao_nome": "peças infernais"
+                    "colecao_nome": "pecas infernais"
                 },
                 {
                     "id_livro": 74,
@@ -650,7 +650,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Principe mecanico e uma narrativa envolvente que explora os dilemas do amor e da lealdade, com personagens que enfrentam desafios emocionais profundos.",
                     "classificacao_livro": 5,
                     "categoria_nome": "fantasia",
-                    "colecao_nome": "peças infernais"
+                    "colecao_nome": "pecas infernais"
                 },
                 {
                     "id_livro": 75,
@@ -661,7 +661,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Princesa mecanica e uma conclusao epica que amarra todas as pontas soltas da serie, proporcionando um desfecho emocionante e satisfatorio.",
                     "classificacao_livro": 5,
                     "categoria_nome": "fantasia",
-                    "colecao_nome": "peças infernais"
+                    "colecao_nome": "pecas infernais"
                 },
                 {
                     "id_livro": 76,
@@ -683,7 +683,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Misterios noturnos e uma narrativa envolvente que mistura romance e suspense, mantendo o leitor intrigado com suas reviravoltas inesperadas.",
                     "classificacao_livro": 5,
                     "categoria_nome": "vampiro",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 78,
@@ -749,7 +749,7 @@ export const fetchBooks = async () => {
                     "comentario_livro": "Filho do amanha e uma narrativa que explora as consequencias das decisoes e a luta por um futuro melhor, com personagens que inspiram.",
                     "classificacao_livro": 4,
                     "categoria_nome": "fantasia",
-                    "colecao_nome": "livros únicos"
+                    "colecao_nome": "livros unicos"
                 },
                 {
                     "id_livro": 85,
@@ -808,6 +808,6 @@ export const fetchBooks = async () => {
                 }
 
             ])
-        }, 1000)
+        }, 100)
     })
 }

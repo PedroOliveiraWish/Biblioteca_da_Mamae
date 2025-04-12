@@ -1,15 +1,19 @@
 import Header from "../../Component/Header/Header";
 import Footer from "../../Component/Footer/Footer";
-import useBook from "../../Hook/useBooks";
+import { Livro } from "../../types/livro";
+import { ColecaoLivro } from "../../types/colecaoLivro";
+import { fetchBooks } from "../../API/Book.api";
+import { fetchCollections } from "../../API/Collection.api";
 import SliderLivro from "../../Component/Carousel/CarouselLivro";
 import { Container } from "react-bootstrap";
 import ReadingQuote from "../../Component/Separate/Separate";
 import ReadingQuoteTwo from "../../Component/Separate/reading";
 import "../../styles/introducao/introducao.css";
 import SliderColecao from "../../Component/Carousel/CarouselColecao";
-import useCollectionBook from "../../Hook/useCollectionBook";
 import BookCard from "../../Component/BookPage/BookCard";
 import "../../styles/homePage/homePage.css";
+
+import React, {useState, useEffect} from "react";
 
 const Introducao = () => {
   return (
@@ -35,16 +39,30 @@ const Introducao = () => {
 };
 
 function HomePage() {
-  const livros = useBook();
-  const colecoes = useCollectionBook();
-  console.log(livros);
-  const filhoDoAmanha = livros.filter(
-    (livro) => livro.titulo === "Filho do amanha"
+  const [books, setBooks] = useState<Livro[]>([])
+  const [colecoes, setColecoes] = useState<ColecaoLivro[]>([])
+
+  useEffect(() => {
+    fetchBooks().then((data) => {
+      const books_data = data as Livro[];
+
+      setBooks(books_data)
+    })
+
+    fetchCollections().then((data) => {
+      const collections_data = data as ColecaoLivro[]
+
+      setColecoes(collections_data)
+    })
+  }, [])
+
+  const filhoDoAmanha = books.filter(
+    (livro: Livro) => livro.titulo === "Filho do amanha"
   );
-  const sempreFoiVoce = livros.filter(
+  const sempreFoiVoce = books.filter(
     (livro) => livro.titulo === "Sempre foi voce"
   );
-  const oMorroDosVentosUivantes = livros.filter(
+  const oMorroDosVentosUivantes = books.filter(
     (livro) => livro.titulo === "O morro dos ventos uivantes"
   );
 
@@ -53,8 +71,6 @@ function HomePage() {
     sempreFoiVoce[0] || null,
     oMorroDosVentosUivantes[0] || null,
   ].filter(Boolean); // Remove undefined values
-
-  console.log(livrosRecomendados);
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -78,7 +94,7 @@ function HomePage() {
       <Introducao />
 
       <Container>
-        <SliderLivro livros={livros} />
+        <SliderLivro livros={books} />
       </Container>
       <ReadingQuote />
 

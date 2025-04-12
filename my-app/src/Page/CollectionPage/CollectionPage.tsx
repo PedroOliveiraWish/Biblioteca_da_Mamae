@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Header from "../../Component/Header/Header";
 import Footer from "../../Component/Footer/Footer";
-import useCollectionBook from "../../Hook/useCollectionBook";
+import { fetchCollections } from "../../API/Collection.api";
+import { ColecaoLivro } from "../../types/colecaoLivro";
 
-import { Container, Card, Row, Col } from "react-bootstrap";
 import "../../styles/collection/collection.css";
 
 const CollectionPage: React.FC = () => {
-  const collections = useCollectionBook();
+  const [collections, setCollections] = useState<ColecaoLivro[]>([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchCollections().then((data) => {
+      const data_collection = data as ColecaoLivro[];
+
+      setCollections(data_collection);
+    });
+  });
 
   const handleClick = (id: number) => {
     navigate(`collection/${id}`);
@@ -27,31 +35,27 @@ const CollectionPage: React.FC = () => {
         </div>
       </div>
 
-      <Container>
-        <Row className="py-5" xs={1} sm={2} md={3} lg={4}>
+        <ul className="list-collection">
           {collections.map((collection) => {
             return (
-              <Col key={collection.colecao_id}>
-                <Card
-                  className="collection-card mt-3 shadow-lg rounded"
-                  onClick={() => handleClick(collection.colecao_id)}
-                >
-                  <div className="image">
-                    <img
-                      className="card-img"
-                      src={collection.imagem_url}
-                      alt={collection.nome}
-                    />
-                  </div>
-                  <div className="content-title">
-                    <div className="card-title">{collection.nome}</div>
-                  </div>
-                </Card>
-              </Col>
+              <div
+                className="collection-card"
+                onClick={() => handleClick(collection.colecao_id)}
+              >
+                <div className="image">
+                  <img
+                    className="card-img"
+                    src={collection.imagem_url}
+                    alt={collection.nome}
+                  />
+                </div>
+                <div className="content-title">
+                  <div className="card-title">{collection.nome}</div>
+                </div>
+              </div>
             );
           })}
-        </Row>
-      </Container>
+        </ul>
       <Footer />
     </div>
   );
